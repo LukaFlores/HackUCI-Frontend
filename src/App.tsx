@@ -16,7 +16,7 @@ const App: React.FC<{}> = (props) => {
   const [showLoader, setShowLoader] = useState<boolean>(true);
 
   return (
-    <div>
+    <div className="">
       {showLoader ? (
         <div
           className={`fixed z-50 loader w-screen h-screen flex justify-center bg-white items-center transition duration-500 ease-in-out ${
@@ -53,14 +53,18 @@ const App: React.FC<{}> = (props) => {
           }}
           timeout={7000}
         >
-          <main id="main">
-            <Fade key={location.pathname} appear duration={300} collapse>
-              <Routes>
-                <Route path="/signin" element={<SignIn loading={showLoader} />} />
-                <Route path="/" element={<Dashboard loading={showLoader} />} />
-              </Routes>
-            </Fade>
-          </main>
+          <div className="flex flex-row z-30 bg-white">
+            <div className=" antialiased font-sans h-full min-h-screen w-full">
+              <main id="main">
+                <Fade key={location.pathname} appear duration={300} collapse>
+                  <Routes>
+                    <Route path="/signin" element={<SignIn loading={showLoader} />} />
+                    <Route path="/" element={<Dashboard loading={showLoader} />} />
+                  </Routes>
+                </Fade>
+              </main>
+            </div>
+          </div>
         </OnImagesLoaded>
       ) : null}
     </div>
