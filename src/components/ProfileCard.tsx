@@ -11,7 +11,8 @@ const ProfileCard: React.FC<{}> = (props) => {
   //   img: profileImg,
   //   description: 'Hello my name is mary, I love to workout',
   //   gender: 'female',
-  //   interests: 'weight training, yoga, tennis'
+  //   interests: 'weight training, yoga, tennis',
+  //   activityLevel: 'intense'
   // };
 
   const profileData = {
@@ -20,7 +21,8 @@ const ProfileCard: React.FC<{}> = (props) => {
     img: profileImg2,
     description: 'I love running and swimming and would love to find someone to workout with',
     gender: 'male',
-    interests: 'running, swimming'
+    interests: 'running, swimming',
+    activityLevel: 'beginner'
   }
 
   function disliked() {}
@@ -35,6 +37,10 @@ const ProfileCard: React.FC<{}> = (props) => {
         </div>
         <img src={profileData.img} className="rounded-xl"/>
 
+        <div className='text-left pl-1 mt-4 text-black'>
+          <b>Activity Level:</b> {profileData.activityLevel}
+        </div>
+        
         <div className='text-left pl-1 mt-4 text-black'>
           <b>Interests:</b> {profileData.interests}
         </div>
