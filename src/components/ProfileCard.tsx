@@ -10,7 +10,8 @@ const ProfileCard: React.FC<{}> = (props) => {
   //   age: '15',
   //   img: profileImg,
   //   description: 'Hello my name is mary, I love to workout',
-  //   gender: 'female'
+  //   gender: 'female',
+  //   interests: 'weight training, yoga, tennis'
   // };
 
   const profileData = {
@@ -33,17 +34,19 @@ const ProfileCard: React.FC<{}> = (props) => {
             <b>{profileData.name}</b>, <i>{profileData.age}</i>
         </div>
         <img src={profileData.img} className="rounded-xl"/>
-        <div className='text-center text-black'>
-          {profileData.description}
-        </div>
 
-        <div className='text-center text-black'>
+        <div className='text-left pl-1 mt-4 text-black'>
           <b>Interests:</b> {profileData.interests}
         </div>
 
+        <div className='text-left pl-1 mt-4 text-black'>
+          <b>Bio:</b> {profileData.description}
+        </div>
+
+
         <div className="flex items-baseline justify-between">
-          <img className='h-20 hover:bg-red-400 rounded-full' onClick={() => disliked}  src={redX}/>
-          <img className='h-20 hover:bg-green-1 rounded-full' onClick={() => liked} src={greenCheck}/>
+          <img className='h-14 mt-4 hover:bg-red-400 rounded-full' onClick={() => disliked}  src={redX}/>
+          <img className='h-14 mt-4 hover:bg-green-1 rounded-full' onClick={() => liked} src={greenCheck}/>
         </div>
 
 
