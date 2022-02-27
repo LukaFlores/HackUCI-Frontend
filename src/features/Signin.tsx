@@ -147,7 +147,7 @@ const SignIn: React.FC<{ loading: boolean; isEditingInterests: any }> = (props) 
               </li>
             )}
             {validInputs.retypePassword === false && formPreferences === 'signin' && (
-              <li>'The retyped password must match the first password entered</li>
+              <li>The retyped password must match the first password entered</li>
             )}
           </ul>
           <div className="flex items-baseline justify-between">
