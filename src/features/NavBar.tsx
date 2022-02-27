@@ -39,7 +39,7 @@ const NavBar: React.FC<{
           <span className="font-semibold text-xl tracking-tight">ExerBuddy</span>
         </div>
         <div className="w-full block flex-justify-end lg:flex lg:items-center lg:w-auto">
-          {props.isEditingInterests === false && (
+          {props.isEditingInterests === false && props.isLoggedIn === true && (
             <>
               <div>
                 <button

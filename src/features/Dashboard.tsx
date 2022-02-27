@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import ProfileCard from '../components/ProfileCard';
 import InputFields from './InputFields';
 import NavBar from './NavBar';
+import ProfilePage from './ProfilePage';
 import SignIn from './Signin';
 
 const Dashboard: React.FC<{ loading: boolean }> = (props) => {
@@ -25,7 +26,7 @@ const Dashboard: React.FC<{ loading: boolean }> = (props) => {
   });
 
   return (
-    <div className="justify-center mt-30 mb-30 ">
+    <div className="justify-center mt-30 mb-30">
       <NavBar
         loading={props.loading}
         isEditProfile={setIsEditingInterests}
@@ -34,9 +35,9 @@ const Dashboard: React.FC<{ loading: boolean }> = (props) => {
         isEditingInterests={isEditingIntersts}
       />
       {isEditingIntersts ? (
-        <InputFields loading={props.loading} />
+        <InputFields loading={props.loading} isEditingInterests={setIsEditingInterests} />
       ) : isLoggedIn ? (
-        <ProfileCard />
+        <ProfilePage />
       ) : (
         <SignIn loading={props.loading} isEditingInterests={setIsEditingInterests} />
       )}
