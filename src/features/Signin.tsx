@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { Navigate } from 'react-router-dom';
 
 interface ValidateInputs {
   email: boolean;
@@ -7,7 +8,7 @@ interface ValidateInputs {
   retypePassword: boolean;
 }
 
-const SignIn: React.FC<{ loading: boolean }> = (props) => {
+const SignIn: React.FC<{ loading: boolean; isEditingInterests: any }> = (props) => {
   const [formPreferences, setFormPreferences] = useState<'login' | 'signin'>('login');
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
@@ -25,17 +26,22 @@ const SignIn: React.FC<{ loading: boolean }> = (props) => {
   const signUpUser = async (auth: any, email: string, password: string) => {
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      console.log(userCredential);
+      if (userCredential) {
+        props.isEditingInterests(true);
+      }
     } catch (error: any) {
       const errorCode = error.code;
       const errorMessage = error.message;
       console.log(`${errorCode} : ${errorMessage}`);
     }
   };
+
   const signExistingUser = async (auth: any, email: string, password: string) => {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      console.log(userCredential);
+      if (userCredential) {
+        props.isEditingInterests(true);
+      }
     } catch (error: any) {
       const errorCode = error.code;
       const errorMessage = error.message;

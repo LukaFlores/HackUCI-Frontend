@@ -7,9 +7,9 @@ import Fade from 'react-reveal/Fade';
 import Swing from 'react-reveal/Swing';
 import Dashboard from './features/Dashboard';
 import imgtypscriptlogo from './assets/images/typescript.svg';
-import SignIn from './features/Signin';
 import RequireAuth from './components/RequireAuth';
 import InputFields from './features/InputFields';
+import SignInFroms from './features/SignInForms';
 
 const App: React.FC<{}> = (props) => {
   const location = useLocation();
@@ -38,47 +38,40 @@ const App: React.FC<{}> = (props) => {
         </div>
       ) : null}
 
-      {ready ? (
-        <OnImagesLoaded
-          onLoaded={() => {
-            setTimeout(() => {
-              setLoading(false);
-              setTimeout(() => {
-                setShowLoader(false);
-              }, 500);
-            }, 1000);
-          }}
-          onTimeout={() => {
+      <OnImagesLoaded
+        onLoaded={() => {
+          setTimeout(() => {
             setLoading(false);
             setTimeout(() => {
               setShowLoader(false);
             }, 500);
-          }}
-          timeout={7000}
-        >
-          <div className="flex flex-row z-30 bg-white">
-            <div className=" antialiased font-sans h-full min-h-screen w-full">
-              <main id="main">
-                <Fade key={location.pathname} appear duration={300} collapse>
-                  <Routes>
-                    <Route path="/signin" element={<SignIn loading={showLoader} />} />
-                    <Route path="/" element={<Dashboard loading={showLoader} />} />
-                    <Route path="/inputfields" element={<InputFields loading={showLoader} />} />
-                    <Route
-                      path="/"
-                      element={
-                        <RequireAuth>
-                          <Dashboard loading={showLoader} />
-                        </RequireAuth>
-                      }
-                    />
-                  </Routes>
-                </Fade>
-              </main>
-            </div>
-          </div>
-        </OnImagesLoaded>
-      ) : null}
+          }, 1000);
+        }}
+        onTimeout={() => {
+          setLoading(false);
+          setTimeout(() => {
+            setShowLoader(false);
+          }, 500);
+        }}
+        timeout={7000}
+      >
+        <main id="main">
+          <Fade key={location.pathname} appear duration={300} collapse>
+            <Routes>
+              <Route path="/signin" element={<SignInFroms loading={showLoader} />} />
+              <Route path="/inputfields" element={<InputFields loading={showLoader} />} />
+              <Route
+                path="/"
+                element={
+                  <RequireAuth>
+                    <Dashboard loading={showLoader} />
+                  </RequireAuth>
+                }
+              />
+            </Routes>
+          </Fade>
+        </main>
+      </OnImagesLoaded>
     </div>
   );
 };
