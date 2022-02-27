@@ -1,11 +1,6 @@
 import React, { useState } from 'react';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 
-interface ValidateInputs {
-  email: boolean;
-  password: boolean;
-  retypePassword: boolean;
-}
 
 const InputFields: React.FC<{ loading: boolean }> = (props) => {
 
@@ -34,7 +29,7 @@ const InputFields: React.FC<{ loading: boolean }> = (props) => {
                 </div>
 
                 <div className="mt-4">
-                    <label htmlFor='time-of-day' className="font-sans font-bold text-white text-xl">Preferred workout time: </label>
+                    <label htmlFor='time-of-day' className="font-sans font-bold text-white text-xl">Preferred Workout Time: </label>
                     <select name="Time" id="time-of-day" className='w-full px-4 py-2 mt-2 font-sans rounded-md focus:outline-none'>
                         <option value="" disabled selected>Please choose...</option>
                         <option value="morning">Morning</option>
@@ -45,7 +40,7 @@ const InputFields: React.FC<{ loading: boolean }> = (props) => {
                 </div>
 
                 <div className="mt-4">
-                    <label htmlFor='activity-level' className="font-sans font-bold text-white text-xl">Preferred workout level: </label>
+                    <label htmlFor='activity-level' className="font-sans font-bold text-white text-xl">Preferred Workout Level: </label>
                     <select name="ActivityLevel" id="activity-level" className='w-full px-4 py-2 mt-2 font-sans rounded-md focus:outline-none'>
                         <option value="" disabled selected>Please choose...</option>
                         <option value="light">Light</option>
@@ -63,7 +58,7 @@ const InputFields: React.FC<{ loading: boolean }> = (props) => {
                             One-Workout Stand
                         </button>
 
-                        <button 
+                        <button
                         className="px-6 py-2 mt-4 text-blue-2 rounded-lg bg-white shadow-md hover:shadow-xl">
                             Long-Term Relationship
                         </button>
@@ -72,6 +67,33 @@ const InputFields: React.FC<{ loading: boolean }> = (props) => {
 
                 <div className="mt-4">
                     <div className="font-sans font-bold text-white text-xl">Activities</div>
+                    <select id="activities" name="activities" 
+                    data-placeholder="Begin typing a name to filter..." 
+                    multiple className='w-full px-4 py-2 mt-2 font-sans rounded-md focus:outline-none'
+                    >
+                        <option value='badminton'>badminton</option>
+                        <option value='baseball'>baseball</option>
+                        <option value='basketball'>basketball</option>
+                        <option value='dance'>dance</option>
+                        <option value='football'>football</option>
+                        <option value='frisbee'>frisbee</option>
+                        <option value='golf'>golf</option>
+                        <option value='gym'>gym</option>
+                        <option value='hiking'>hiking</option>
+                        <option value='hockey'>hockey</option>
+                        <option value='martial-arts'>martial arts</option>
+                        <option value='running'>running</option>
+                        <option value='soccer'>soccer</option>
+                        <option value='softball'>softball</option>
+                        <option value='swimming'>swimming</option>
+                        <option value='table-tennis'>table tennis</option>
+                        <option value='tennis'>tennis</option>
+                        <option value='volleyball'>volleyball</option>
+                        <option value='weights'>weights</option>
+                        <option value='yoga'>yoga</option>
+                        <option value='other'>other</option>
+                    </select>
+                
 
                 </div>
                 
