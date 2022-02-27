@@ -5,7 +5,7 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } f
 const InputFields: React.FC<{ loading: boolean }> = (props) => {
 
   return (
-    <div className="justify-center flex items-center m-40">
+    <div className="justify-center flex items-center m-5">
         <div className='w-100 rounded-xl shadow-xl bg-blue-1'>
             <div className="my-6 px-5 ">
                 <div className="font-sans font-bold text-white text-xl">
@@ -54,6 +54,9 @@ const InputFields: React.FC<{ loading: boolean }> = (props) => {
                     <div className="font-sans font-bold text-white text-xl">Preferred Workout Relationship</div>
                     <div className="flex items-baseline justify-between">
                         <button 
+                        // onClick={() => {
+                        //     // setFormPreferences('login');
+                        // }}
                         className="px-6 py-2 mt-4 text-blue-2 rounded-lg bg-white shadow-md hover:shadow-xl">
                             One-Workout Stand
                         </button>
@@ -93,8 +96,10 @@ const InputFields: React.FC<{ loading: boolean }> = (props) => {
                         <option value='yoga'>yoga</option>
                         <option value='other'>other</option>
                     </select>
-                
+                </div>
 
+                <div className='mt-4'>
+                    <button className="px-6 py-2 mt-4 text-white rounded-lg bg-blue-2 shadow-md hover:shadow-xl">Submit</button>
                 </div>
                 
 
