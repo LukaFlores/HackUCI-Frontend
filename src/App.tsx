@@ -7,16 +7,13 @@ import Fade from 'react-reveal/Fade';
 import Swing from 'react-reveal/Swing';
 import Dashboard from './features/Dashboard';
 import imgtypscriptlogo from './assets/images/typescript.svg';
-import RequireAuth from './components/RequireAuth';
 import InputFields from './features/InputFields';
-import SignInFroms from './features/SignInForms';
+import SignInFroms from './features/Dashboard';
 
 const App: React.FC<{}> = (props) => {
   const location = useLocation();
   const [loading, setLoading] = useState<boolean>(true);
   const [showLoader, setShowLoader] = useState<boolean>(true);
-  const [userUID, setUserUID] = useState('');
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
   return (
     <div className="">
@@ -58,16 +55,7 @@ const App: React.FC<{}> = (props) => {
         <main id="main">
           <Fade key={location.pathname} appear duration={300} collapse>
             <Routes>
-              <Route path="/signin" element={<SignInFroms loading={showLoader} />} />
-              <Route path="/inputfields" element={<InputFields loading={showLoader} />} />
-              <Route
-                path="/"
-                element={
-                  <RequireAuth>
-                    <Dashboard loading={showLoader} />
-                  </RequireAuth>
-                }
-              />
+              <Route path="/" element={<Dashboard loading={showLoader} />} />
             </Routes>
           </Fade>
         </main>
