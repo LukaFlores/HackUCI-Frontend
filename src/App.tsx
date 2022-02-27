@@ -1,20 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Children } from 'react';
 import { useTranslation } from 'react-i18next';
 import OnImagesLoaded from 'react-on-images-loaded';
-import { Route, Routes, useLocation } from 'react-router-dom';
-
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import Fade from 'react-reveal/Fade';
 import Swing from 'react-reveal/Swing';
 import Dashboard from './features/Dashboard';
 import imgtypscriptlogo from './assets/images/typescript.svg';
 import SignIn from './features/Signin';
+import RequireAuth from './components/RequireAuth';
 import InputFields from './features/InputFields';
 
 const App: React.FC<{}> = (props) => {
-  const { t, ready } = useTranslation();
   const location = useLocation();
   const [loading, setLoading] = useState<boolean>(true);
   const [showLoader, setShowLoader] = useState<boolean>(true);
+  const [userUID, setUserUID] = useState('');
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
   return (
     <div className="">
@@ -62,6 +64,14 @@ const App: React.FC<{}> = (props) => {
                     <Route path="/signin" element={<SignIn loading={showLoader} />} />
                     <Route path="/" element={<Dashboard loading={showLoader} />} />
                     <Route path="/inputfields" element={<InputFields loading={showLoader} />} />
+                    <Route
+                      path="/"
+                      element={
+                        <RequireAuth>
+                          <Dashboard loading={showLoader} />
+                        </RequireAuth>
+                      }
+                    />
                   </Routes>
                 </Fade>
               </main>
