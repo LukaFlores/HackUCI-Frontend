@@ -18,17 +18,17 @@ const InputFields: React.FC<{ loading: boolean }> = (props) => {
                     />
                 </div>
 
-          <div className="mt-4">
-            <label htmlFor="birthday" className="font-sans font-bold text-white text-xl">
-              Birthday
-            </label>
-            <input
-              id="birthday"
-              type="date"
-              placeholder="Birthday"
-              className="w-full px-4 py-2 mt-2 font-sans rounded-md focus:outline-none"
-            />
-          </div>
+                <div className="mt-4">
+                    <label htmlFor="birthday" className="font-sans font-bold text-white text-xl">
+                    Birthday
+                    </label>
+                    <input
+                    id="birthday"
+                    type="date"
+                    placeholder="Birthday"
+                    className="w-full px-4 py-2 mt-2 font-sans rounded-md focus:outline-none"
+                    />
+                </div>
 
                 <div className="mt-4">
                     <label htmlFor='gender' className="font-sans font-bold text-white text-xl">Gender</label>
@@ -67,9 +67,6 @@ const InputFields: React.FC<{ loading: boolean }> = (props) => {
                     <div className="font-sans font-bold text-white text-xl">Preferred Workout Relationship</div>
                     <div className="flex items-baseline justify-between">
                         <button 
-                        // onClick={() => {
-                        //     // setFormPreferences('login');
-                        // }}
                         className="px-6 py-2 mt-4 text-blue-2 rounded-lg bg-white shadow-md hover:shadow-xl">
                             One-Workout Stand
                         </button>
@@ -114,57 +111,8 @@ const InputFields: React.FC<{ loading: boolean }> = (props) => {
                 <div className='mt-4'>
                     <button className="px-6 py-2 mt-4 text-white rounded-lg bg-blue-2 shadow-md hover:shadow-xl hover:bg-blue-4">Submit</button>
                 </div>
-                
-
-          <div className="mt-4">
-            <div className="font-sans font-bold text-white text-xl">
-              Preferred Workout Relationship
             </div>
-            <div className="flex items-baseline justify-between">
-              <button className="px-6 py-2 mt-4 text-blue-2 rounded-lg bg-white shadow-md hover:shadow-xl">
-                One-Workout Stand
-              </button>
-
-              <button className="px-6 py-2 mt-4 text-blue-2 rounded-lg bg-white shadow-md hover:shadow-xl">
-                Long-Term Relationship
-              </button>
-            </div>
-          </div>
-
-          <div className="mt-4">
-            <div className="font-sans font-bold text-white text-xl">Activities</div>
-            <select
-              id="activities"
-              name="activities"
-              data-placeholder="Begin typing a name to filter..."
-              multiple
-              className="w-full px-4 py-2 mt-2 font-sans rounded-md focus:outline-none"
-            >
-              <option value="badminton">badminton</option>
-              <option value="baseball">baseball</option>
-              <option value="basketball">basketball</option>
-              <option value="dance">dance</option>
-              <option value="football">football</option>
-              <option value="frisbee">frisbee</option>
-              <option value="golf">golf</option>
-              <option value="gym">gym</option>
-              <option value="hiking">hiking</option>
-              <option value="hockey">hockey</option>
-              <option value="martial-arts">martial arts</option>
-              <option value="running">running</option>
-              <option value="soccer">soccer</option>
-              <option value="softball">softball</option>
-              <option value="swimming">swimming</option>
-              <option value="table-tennis">table tennis</option>
-              <option value="tennis">tennis</option>
-              <option value="volleyball">volleyball</option>
-              <option value="weights">weights</option>
-              <option value="yoga">yoga</option>
-              <option value="other">other</option>
-            </select>
-          </div>
         </div>
-      </div>
     </div>
   );
 };
