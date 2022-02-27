@@ -110,7 +110,7 @@ const InputFields: React.FC<{ loading: boolean }> = (props) => {
                 </div>
 
                 <div className='mt-4'>
-                    <button className="px-6 py-2 mt-4 text-white rounded-lg bg-blue-2 shadow-md hover:shadow-xl">Submit</button>
+                    <button className="px-6 py-2 mt-4 text-white rounded-lg bg-blue-2 shadow-md hover:shadow-xl hover:bg-blue-4">Submit</button>
                 </div>
                 
 
