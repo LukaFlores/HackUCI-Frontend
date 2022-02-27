@@ -9,9 +9,9 @@ import Dashboard from './features/Dashboard';
 import imgtypscriptlogo from './assets/images/typescript.svg';
 import SignIn from './features/Signin';
 import RequireAuth from './components/RequireAuth';
+import InputFields from './features/InputFields';
 
 const App: React.FC<{}> = (props) => {
-  const { t, ready } = useTranslation();
   const location = useLocation();
   const [loading, setLoading] = useState<boolean>(true);
   const [showLoader, setShowLoader] = useState<boolean>(true);
@@ -62,6 +62,8 @@ const App: React.FC<{}> = (props) => {
                 <Fade key={location.pathname} appear duration={300} collapse>
                   <Routes>
                     <Route path="/signin" element={<SignIn loading={showLoader} />} />
+                    <Route path="/" element={<Dashboard loading={showLoader} />} />
+                    <Route path="/inputfields" element={<InputFields loading={showLoader} />} />
                     <Route
                       path="/"
                       element={

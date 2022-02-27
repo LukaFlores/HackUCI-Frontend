@@ -31,7 +31,7 @@ const ProfileCard: React.FC<{}> = (props) => {
 
   return (
     <div className="justify-center flex items-center m-40">
-      <div className="w-100 p-6 bg-white rounded-xl drop-shadow-md">
+      <div className="w-100 p-6 bg-white rounded-xl shadow-md hover:shadow-xl">
         <div className='text-center text-black text-2xl'>
             <b>{profileData.name}</b>, <i>{profileData.age}</i>
         </div>
