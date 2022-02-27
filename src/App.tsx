@@ -51,14 +51,18 @@ const App: React.FC<{}> = (props) => {
         }}
         timeout={7000}
       >
-        <main id="main">
-          <Fade key={location.pathname} appear duration={300} collapse>
-            <Routes>
-              <Route path="/editprofile" element={<EditProfile loading={showLoader} />} />
-              <Route path="/" element={<Dashboard loading={showLoader} />} />
-            </Routes>
-          </Fade>
-        </main>
+        <div className="flex flex-row z-30 bg-gradient-to-t from-blue-1 to bg-white">
+          <div className=" antialiased font-sans h-full min-h-screen w-full">
+            <main id="main">
+              <Fade key={location.pathname} appear duration={300} collapse>
+                <Routes>
+                  <Route path="/editprofile" element={<EditProfile loading={showLoader} />} />
+                  <Route path="/" element={<Dashboard loading={showLoader} />} />
+                </Routes>
+              </Fade>
+            </main>
+          </div>
+        </div>
       </OnImagesLoaded>
     </div>
   );

@@ -23,11 +23,9 @@ const EditProfile: React.FC<{ loading: boolean }> = (props) => {
                 <div className="text-center font-sans text-white font-bold text-3xl mb-3">
                     PROFILE
                 </div>
-                
                 <div className="font-sans text-white text-lg">
                     <b>Name:</b> {profileData.name}
                 </div>
-
                 <div className="font-sans text-white text-lg">
                     <b>Preferred Workout Time:</b> {profileData.preferredTime}
                 </div>
