@@ -29,7 +29,7 @@ const InputFields: React.FC<{ loading: boolean }> = (props) => {
                 </div>
 
                 <div className="mt-4">
-                    <label htmlFor='gender' className="text-white">Gender</label>
+                    <label htmlFor='gender' className="font-sans font-bold text-white text-xl">Gender</label>
                     <select name="gender" id="gender" className='w-full px-4 py-2 mt-2 font-sans rounded-md focus:outline-none'>
                         <option value="" disabled selected>Please choose...</option>
                         <option value="male">Male</option>
