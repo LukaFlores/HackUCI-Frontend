@@ -9,11 +9,8 @@ import Dashboard from './features/Dashboard';
 import imgtypscriptlogo from './assets/images/typescript.svg';
 import RequireAuth from './components/RequireAuth';
 import InputFields from './features/InputFields';
-<<<<<<< HEAD
+import SignInForms from './features/SignInForms';
 import EditProfile from './features/EditProfile';
-=======
-import SignInFroms from './features/SignInForms';
->>>>>>> ca2e985bce7a52284ba30bc940bd8a51c3b3dacb
 
 const App: React.FC<{}> = (props) => {
   const location = useLocation();
@@ -49,27 +46,6 @@ const App: React.FC<{}> = (props) => {
             setTimeout(() => {
               setShowLoader(false);
             }, 500);
-<<<<<<< HEAD
-          }}
-          timeout={7000}
-        >
-          <div className="flex flex-row z-30 bg-white">
-            <div className=" antialiased font-sans h-full min-h-screen w-full">
-              <main id="main">
-                <Fade key={location.pathname} appear duration={300} collapse>
-                  <Routes>
-                    <Route path="/signin" element={<SignIn loading={showLoader} />} />
-                    <Route path="/" element={<Dashboard loading={showLoader} />} />
-                    <Route path="/inputfields" element={<InputFields loading={showLoader} />} />
-                    <Route path="/editprofile" element={<EditProfile loading={showLoader} />} />
-                  </Routes>
-                </Fade>
-              </main>
-            </div>
-          </div>
-        </OnImagesLoaded>
-      ) : null}
-=======
           }, 1000);
         }}
         onTimeout={() => {
@@ -83,8 +59,9 @@ const App: React.FC<{}> = (props) => {
         <main id="main">
           <Fade key={location.pathname} appear duration={300} collapse>
             <Routes>
-              <Route path="/signin" element={<SignInFroms loading={showLoader} />} />
+              <Route path="/signin" element={<SignInForms loading={showLoader} />} />
               <Route path="/inputfields" element={<InputFields loading={showLoader} />} />
+              <Route path="/editprofile" element={<EditProfile loading={showLoader} />} />
               <Route
                 path="/"
                 element={
@@ -97,7 +74,6 @@ const App: React.FC<{}> = (props) => {
           </Fade>
         </main>
       </OnImagesLoaded>
->>>>>>> ca2e985bce7a52284ba30bc940bd8a51c3b3dacb
     </div>
   );
 };
