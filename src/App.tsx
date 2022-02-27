@@ -1,21 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Children } from 'react';
 import { useTranslation } from 'react-i18next';
 import OnImagesLoaded from 'react-on-images-loaded';
-import { Route, Routes, useLocation } from 'react-router-dom';
-
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import Fade from 'react-reveal/Fade';
 import Swing from 'react-reveal/Swing';
 import Dashboard from './features/Dashboard';
 import imgtypscriptlogo from './assets/images/typescript.svg';
-import SignIn from './features/Signin';
+import RequireAuth from './components/RequireAuth';
 import InputFields from './features/InputFields';
+<<<<<<< HEAD
 import EditProfile from './features/EditProfile';
+=======
+import SignInFroms from './features/SignInForms';
+>>>>>>> ca2e985bce7a52284ba30bc940bd8a51c3b3dacb
 
 const App: React.FC<{}> = (props) => {
-  const { t, ready } = useTranslation();
   const location = useLocation();
   const [loading, setLoading] = useState<boolean>(true);
   const [showLoader, setShowLoader] = useState<boolean>(true);
+  const [userUID, setUserUID] = useState('');
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
   return (
     <div className="">
@@ -37,21 +42,14 @@ const App: React.FC<{}> = (props) => {
         </div>
       ) : null}
 
-      {ready ? (
-        <OnImagesLoaded
-          onLoaded={() => {
-            setTimeout(() => {
-              setLoading(false);
-              setTimeout(() => {
-                setShowLoader(false);
-              }, 500);
-            }, 1000);
-          }}
-          onTimeout={() => {
+      <OnImagesLoaded
+        onLoaded={() => {
+          setTimeout(() => {
             setLoading(false);
             setTimeout(() => {
               setShowLoader(false);
             }, 500);
+<<<<<<< HEAD
           }}
           timeout={7000}
         >
@@ -71,6 +69,35 @@ const App: React.FC<{}> = (props) => {
           </div>
         </OnImagesLoaded>
       ) : null}
+=======
+          }, 1000);
+        }}
+        onTimeout={() => {
+          setLoading(false);
+          setTimeout(() => {
+            setShowLoader(false);
+          }, 500);
+        }}
+        timeout={7000}
+      >
+        <main id="main">
+          <Fade key={location.pathname} appear duration={300} collapse>
+            <Routes>
+              <Route path="/signin" element={<SignInFroms loading={showLoader} />} />
+              <Route path="/inputfields" element={<InputFields loading={showLoader} />} />
+              <Route
+                path="/"
+                element={
+                  <RequireAuth>
+                    <Dashboard loading={showLoader} />
+                  </RequireAuth>
+                }
+              />
+            </Routes>
+          </Fade>
+        </main>
+      </OnImagesLoaded>
+>>>>>>> ca2e985bce7a52284ba30bc940bd8a51c3b3dacb
     </div>
   );
 };
