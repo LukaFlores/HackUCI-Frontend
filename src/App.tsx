@@ -9,6 +9,7 @@ import Dashboard from './features/Dashboard';
 import imgtypscriptlogo from './assets/images/typescript.svg';
 import SignIn from './features/Signin';
 import InputFields from './features/InputFields';
+import EditProfile from './features/EditProfile';
 
 const App: React.FC<{}> = (props) => {
   const { t, ready } = useTranslation();
@@ -62,6 +63,7 @@ const App: React.FC<{}> = (props) => {
                     <Route path="/signin" element={<SignIn loading={showLoader} />} />
                     <Route path="/" element={<Dashboard loading={showLoader} />} />
                     <Route path="/inputfields" element={<InputFields loading={showLoader} />} />
+                    <Route path="/editprofile" element={<EditProfile loading={showLoader} />} />
                   </Routes>
                 </Fade>
               </main>
