@@ -25,7 +25,7 @@ const Dashboard: React.FC<{ loading: boolean }> = (props) => {
   });
 
   return (
-    <div className="justify-center flex items-center mt-30">
+    <div className="justify-center mt-30 mb-30 bg-gradient-to-t from-blue-1 to bg-white">
       <NavBar loading={props.loading} isEditProfile={setIsEditingInterests}/>
       {isEditingIntersts ? (
         <InputFields loading={props.loading} />
