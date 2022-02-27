@@ -8,8 +8,8 @@ const InputFields: React.FC<{ loading: boolean }> = (props) => {
     <div className="justify-center flex items-center m-5">
         <div className='w-100 rounded-xl shadow-xl bg-blue-1'>
             <div className="my-6 px-5 ">
-                <div className="font-sans font-bold text-white text-xl">
-                    <label htmlFor='name'>Full Name</label>
+                <div className="font-sans font-bold text-black text-xl">
+                    <label htmlFor='name' className="text-white">Full Name</label>
                     <input
                     id='name'
                     type="text"
