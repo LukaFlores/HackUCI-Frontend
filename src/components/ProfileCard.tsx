@@ -40,6 +40,10 @@ const ProfileCard: React.FC<{}> = (props) => {
         <img src={profileData.img} className="rounded-xl"/>
 
         <div className='text-left pl-1 mt-4 text-black'>
+          <b>Gender:</b> {profileData.gender}
+        </div>
+
+        <div className='text-left pl-1 mt-4 text-black'>
           <b>Activity Level:</b> {profileData.activityLevel}
         </div>
         

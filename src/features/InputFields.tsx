@@ -29,6 +29,17 @@ const InputFields: React.FC<{ loading: boolean }> = (props) => {
                 </div>
 
                 <div className="mt-4">
+                    <label htmlFor='gender' className="text-white">Gender</label>
+                    <select name="gender" id="gender" className='w-full px-4 py-2 mt-2 font-sans rounded-md focus:outline-none'>
+                        <option value="" disabled selected>Please choose...</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="non-binary">Non-Binary</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div className="mt-4">
                     <label htmlFor='time-of-day' className="font-sans font-bold text-white text-xl">Preferred Workout Time: </label>
                     <select name="Time" id="time-of-day" className='w-full px-4 py-2 mt-2 font-sans rounded-md focus:outline-none'>
                         <option value="" disabled selected>Please choose...</option>
