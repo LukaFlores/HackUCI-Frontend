@@ -13,13 +13,13 @@ const SignIn: React.FC<{ loading: boolean; isEditingInterests: any }> = (props) 
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [retypePassword, setRetypePassword] = useState<string>('');
+  const [error, setError] = useState<boolean>(false);
 
   const [validInputs, setValidInputs] = useState<ValidateInputs>({
     email: false,
     password: false,
     retypePassword: false,
   });
-  const [isFormLoading, setIsFormLoading] = useState<boolean>(false);
 
   const auth = getAuth();
 
@@ -30,9 +30,7 @@ const SignIn: React.FC<{ loading: boolean; isEditingInterests: any }> = (props) 
         props.isEditingInterests(true);
       }
     } catch (error: any) {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log(`${errorCode} : ${errorMessage}`);
+      setError(true);
     }
   };
 
@@ -43,9 +41,7 @@ const SignIn: React.FC<{ loading: boolean; isEditingInterests: any }> = (props) 
         props.isEditingInterests(true);
       }
     } catch (error: any) {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log(`${errorCode} : ${errorMessage}`);
+      setError(true);
     }
   };
 
@@ -137,20 +133,23 @@ const SignIn: React.FC<{ loading: boolean; isEditingInterests: any }> = (props) 
               />
             </div>
           )}
-          {formPreferences === 'signin' && (
-            <ul className="list-disc text-red-800 mt-2 ml-8 text-xs">
-              {validInputs.email === false && <li> A valid email must be entered</li>}
-              {validInputs.password === false && (
-                <li>
-                  Password must contain minimum of eight characters, at least one letter and one
-                  number
-                </li>
-              )}
-              {validInputs.retypePassword === false && (
-                <li>'The retyped password must match the first password entered</li>
-              )}
-            </ul>
+          {error === true && (
+            <div className="text-xs text-red-800  mt-2 ml-8">
+              Please enter a valid email and password
+            </div>
           )}
+          <ul className="list-disc text-red-800 mt-2 ml-8 text-xs">
+            {validInputs.email === false && <li> A valid email must be entered</li>}
+            {validInputs.password === false && (
+              <li>
+                Password must contain minimum of eight characters, at least one letter and one
+                number
+              </li>
+            )}
+            {validInputs.retypePassword === false && formPreferences === 'signin' && (
+              <li>'The retyped password must match the first password entered</li>
+            )}
+          </ul>
           <div className="flex items-baseline justify-between">
             <div
               className={`px-6 py-2 mt-4 text-white rounded-lg  ${
@@ -165,30 +164,22 @@ const SignIn: React.FC<{ loading: boolean; isEditingInterests: any }> = (props) 
                   : 'cursor-pointer'
               }`}
             >
-              {isFormLoading === true ? (
-                <div>test</div>
-              ) : (
-                //TODO : IF notRetyped disabled button
-                <button
-                  className={`font-bold ${
-                    validInputs.email === true && validInputs.password === true
-                      ? 'cursor-pointer'
-                      : 'cursor-not-allowed'
-                  }`}
-                  onClick={() => {
-                    setIsFormLoading(true);
-                    if (formPreferences === 'login') {
-                      signExistingUser(auth, email, password);
-                      setIsFormLoading(false);
-                    } else {
-                      signUpUser(auth, email, password);
-                      setIsFormLoading(false);
-                    }
-                  }}
-                >
-                  {formPreferences === 'login' ? 'Login' : 'Sign Up'}
-                </button>
-              )}
+              <button
+                className={`font-bold ${
+                  validInputs.email === true && validInputs.password === true
+                    ? 'cursor-pointer'
+                    : 'cursor-not-allowed'
+                }`}
+                onClick={() => {
+                  if (formPreferences === 'login') {
+                    signExistingUser(auth, email, password);
+                  } else {
+                    signUpUser(auth, email, password);
+                  }
+                }}
+              >
+                {formPreferences === 'login' ? 'Login' : 'Sign Up'}
+              </button>
             </div>
             <a
               href="/"
