@@ -7,8 +7,7 @@ import Fade from 'react-reveal/Fade';
 import Swing from 'react-reveal/Swing';
 import Dashboard from './features/Dashboard';
 import imgtypscriptlogo from './assets/images/typescript.svg';
-import InputFields from './features/InputFields';
-import SignInFroms from './features/Dashboard';
+import EditProfile from './features/EditProfile';
 
 const App: React.FC<{}> = (props) => {
   const location = useLocation();
@@ -55,6 +54,7 @@ const App: React.FC<{}> = (props) => {
         <main id="main">
           <Fade key={location.pathname} appear duration={300} collapse>
             <Routes>
+              <Route path="/editprofile" element={<EditProfile loading={showLoader} />} />
               <Route path="/" element={<Dashboard loading={showLoader} />} />
             </Routes>
           </Fade>

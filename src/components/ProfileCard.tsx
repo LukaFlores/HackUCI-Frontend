@@ -12,7 +12,8 @@ const ProfileCard: React.FC<{}> = (props) => {
   //   description: 'Hello my name is mary, I love to workout',
   //   gender: 'female',
   //   interests: 'weight training, yoga, tennis',
-  //   activityLevel: 'intense'
+  //   activityLevel: 'intense',
+  //   preferredTime: 'night',
   // };
 
   const profileData = {
@@ -22,7 +23,8 @@ const ProfileCard: React.FC<{}> = (props) => {
     description: 'I love running and swimming and would love to find someone to workout with',
     gender: 'male',
     interests: 'running, swimming',
-    activityLevel: 'beginner'
+    activityLevel: 'light',
+    preferredTime: 'morning',
   }
 
   function disliked() {}
@@ -30,7 +32,7 @@ const ProfileCard: React.FC<{}> = (props) => {
 
 
   return (
-    <div className="justify-center flex items-center m-40">
+    <div className="justify-center flex items-center m-5">
       <div className="w-100 p-6 bg-white rounded-xl shadow-md hover:shadow-xl">
         <div className='text-center text-black text-2xl'>
             <b>{profileData.name}</b>, <i>{profileData.age}</i>
@@ -38,9 +40,17 @@ const ProfileCard: React.FC<{}> = (props) => {
         <img src={profileData.img} className="rounded-xl"/>
 
         <div className='text-left pl-1 mt-4 text-black'>
+          <b>Gender:</b> {profileData.gender}
+        </div>
+
+        <div className='text-left pl-1 mt-4 text-black'>
           <b>Activity Level:</b> {profileData.activityLevel}
         </div>
         
+        <div className='text-left pl-1 mt-4 text-black'>
+          <b>Workout Time:</b> {profileData.preferredTime}
+        </div>
+
         <div className='text-left pl-1 mt-4 text-black'>
           <b>Interests:</b> {profileData.interests}
         </div>
